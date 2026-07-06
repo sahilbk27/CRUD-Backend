@@ -40,6 +40,7 @@ public class AuthController {
     // Consider removing or protecting this once you have the accounts you need.
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
+        System.out.println("REGISTER API HIT");
         if (userRepository.existsByUsername(request.getUsername())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already taken");
         }
