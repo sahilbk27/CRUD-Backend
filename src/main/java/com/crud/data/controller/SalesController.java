@@ -37,6 +37,8 @@ public class SalesController {
     public ResponseEntity<?> addOrder(@RequestBody Sales sales){
         try{
             Sales sale = service.addOrder(sales);
+
+
             return new ResponseEntity<>(sale,HttpStatus.CREATED);
         }
         catch(Exception e){

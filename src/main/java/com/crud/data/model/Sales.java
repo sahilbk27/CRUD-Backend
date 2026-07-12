@@ -24,35 +24,44 @@ public class Sales {
     @JsonProperty("order_number")
     private String order_number;
 
-    @Column(name = "customer_name")
-    @JsonProperty("customer_name")
-    private String customer_name;
+//    @Column(name = "customer_name")
+//    @JsonProperty("customer_name")
+//    private String customer_name;
+//
+//    @Column(name = "customer_email")
+//    @JsonProperty("customer_email")
+//    private String customer_email;
 
-    @Column(name = "customer_email")
-    @JsonProperty("customer_email")
-    private String customer_email;
-
-    @Column(name = "product_name")
-    @JsonProperty("product_name")
-    private String product_name;
-
-    @Column(name = "product_code")
-    @JsonProperty("product_code")
-    private String product_code;
+//    @Column(name = "product_name")
+//    @JsonProperty("product_name")
+//    private String product_name;
+//
+//    @Column(name = "product_code")
+//    @JsonProperty("product_code")
+//    private String product_code;
+//    @Column(name = "unit")
+//    private String unit;
+//
+//    @Column(name = "unit_price")
+//    @JsonProperty("unit_price")
+//    private double unit_price;
 
     @Column(name = "quantity")
     private int quantity;
 
-    @Column(name = "unit")
-    private String unit;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    @JsonProperty("customer")
+    private Customer customer;
 
-    @Column(name = "unit_price")
-    @JsonProperty("unit_price")
-    private double unit_price;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    @JsonProperty("product")
+    private Product product;
 
     @Column(name = "total_amount")
     @JsonProperty("total_amount")
-    private double total_amount;
+    private Double total_amount;
 
     @Column(name = "delivery_address")
     @JsonProperty("delivery_address")
@@ -70,5 +79,4 @@ public class Sales {
     @JsonProperty("order_date")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date order_date;
-
 }
